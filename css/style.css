@@ -1,0 +1,855 @@
+/* Markup-1 for RS-School  *
+ * by Alex Naidovich (c)   *
+ * finished 2018-04-01     *
+ *                         *
+ * made with love,         *
+ * but provided as is :-)  */
+
+/*fonts*/
+
+@font-face {
+    font-family: Yeseva;
+    src: url(../fonts/YesevaOne-Regular_v2.otf);
+}
+
+@font-face {
+    font-family: GentiumBook;
+    font-weight: 700;
+    src: url(../fonts/GenBkBasB.ttf);
+}
+
+@font-face {
+    font-family: GentiumBook;
+    font-weight: 400;
+    src: url(../fonts/GenBkBasR.ttf);
+}
+
+@font-face {
+    font-family: OpenSans;
+    font-weight: 700;
+    src: url(../fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: OpenSans;
+    font-weight: 400;
+    font-style: italic;
+    src: url(../fonts/OpenSans-Italic.ttf);
+}
+
+@font-face {
+    font-family: OpenSans;
+    font-weight: 400;
+    font-style: normal;
+    src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lato;
+    font-weight: 400;
+    src: url(../fonts/Lato-Regular.ttf);
+}
+
+/*common*/
+
+html, body {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    background-image: url(../img/pattern1.jpg);
+    background-repeat: repeat;
+}
+
+.wrapper {
+    width: 1600px;
+    margin: 0 auto;
+    box-shadow: 0 0 84px rgba(0, 0, 0, .7);
+    min-height: 100%;
+    margin-bottom: -320px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Yeseva, serif;
+}
+
+h1 {
+    display: none;
+}
+
+h2 {
+    text-transform: lowercase;
+    font-size: 90px;
+    color: #fff;
+    text-align: center;
+    line-height: 118px;
+}
+
+h3 {
+    color: #c90;
+    font-size: 36px;
+    line-height: 24px;
+}
+
+h4 {
+    color: #fff;
+    font-size: 36px;
+    line-height: 24px;
+}
+
+h5 {
+    color: #c90;
+    font-size: 21px;
+    line-height: 24px;
+}
+
+h6 {
+    color: #fff;
+    font-size: 21px;
+}
+
+p {
+    font-family: Lato, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}
+
+section {
+    width: 100%;
+}
+
+.wrapper section:last-child {
+    margin-bottom: 320px;
+}
+
+button {
+    padding: 0;
+    outline: 0;
+}
+
+/*HEADER*/
+
+header {
+    width: 100%;
+    height: 110px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+header * {
+    box-sizing: border-box;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;  
+    opacity: .7; 
+    z-index: -1;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .9), rgba(0, 0, 0, .8) 25%, rgba(0, 0, 0, 0));
+    background-repeat: repeat-x;
+}
+
+.header__container {
+    width: 1250px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .header__logo {
+    margin: 10px 0 0 4px;
+}
+
+header .header__right {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    margin-right: 40px;
+}
+
+header nav {
+    height: 100%;
+}
+
+header li {
+    display: inline-flex;
+    height: 100%;
+}
+
+header li > a {
+    font-family: GentiumBook, serif;
+    font-weight: 700;
+    font-size: 21px;
+    text-decoration: none;
+    color: #f7f6f5;
+    padding: 0px 6px;
+    margin-left: 35px;
+    display: flex;
+    align-items: center;
+    height: 119px;
+    position: relative;
+    transition: text-shadow .4s ease;
+}
+
+header li > a:hover {
+    text-shadow: 0 0 3px #c90;
+    transition: text-shadow .4s ease;
+}
+
+header li > a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    top: -2px;
+    z-index: -1;
+    background-image: linear-gradient(to bottom, #fff, #fff 50%, rgba(255, 255, 255, .5) 93%, transparent 100%);
+    left: 0;
+    opacity: .25;
+    transition: height .4s ease;
+}
+
+header li > a:hover::after {
+    height: 7px;
+    transition: height .4s ease;
+}
+
+header li .active {
+    border-top: 3px solid rgba(255, 255, 255, .71);
+}
+
+header ul {
+    margin-right: 7px;
+    height: 100%;
+}
+
+header .header__socials {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+header .header__socials > a {
+    color: #dab33e;
+    padding: 0px 8px;
+    font-size: 20px;
+}
+
+header .header__socials > a:last-child {
+    padding-right: 0px;
+}
+
+header .header__socials > a:first-child {
+    padding-right: 11px;
+}
+
+/*MAIN*/
+
+main {
+    width: 100%;
+}
+
+/*home-promo*/
+
+.home {
+    height: 750px;
+    background-color: #191919;
+    background-image: url(../img/bg/bg-01.jpg);
+}
+
+.home__content {
+    width: 970px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home__content-image {
+    width: 230px;
+    height: 43px;
+    margin: 25px auto 34px;
+}
+
+.home__content-buttons {
+    margin: 0 auto;
+    display: flex;
+    width: 486px;
+    height: 57px;
+    justify-content: space-between;
+}
+
+.button {
+    width: 228px;
+    box-sizing: border-box;
+    height: 100%;    
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-family: Lato, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    background: transparent;
+}
+
+.button-dark {
+    margin-right: 15px;
+    border: 1px solid #27201b;
+    background-color: rgba(0, 0, 0, .8);
+    transition: background-color .4s ease,
+                color .4s ease;
+}
+.button-dark:hover {
+    background-color: rgba(255, 255, 255, .2);
+    color: #2d2a2c;
+    transition: background-color .4s ease,
+                color .4s ease;
+}
+
+.button-light {
+    margin-left: 15px;
+    border: 1px solid #beb68d;
+    background-color: rgba(255, 255, 255, .28);
+    transition: background-color .4s ease,
+                color .4s ease;
+}
+.button-light:hover {
+    background-color: rgba(0, 0, 0, .2);
+    color: #f4f5f6;
+    transition: background-color .4s ease,
+                color .4s ease;
+}
+
+/*about*/
+
+.about {
+    height: 710px;
+    padding: 100px 0;
+    box-sizing: border-box;
+    background-image: url(../img/pattern1.jpg);
+    background-repeat: repeat;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.35) inset;
+}
+
+.about__content {
+    width: 1030px;
+    height: calc(100% - 200px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about__content-left {
+    width: 430px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.about__content-left .divider {
+    margin: 23px auto;
+}
+
+.about__content-left p, .menu p {
+    color: #4c4c4c;
+}
+
+.about__content-cook {
+    margin-top: 50px;
+    position: relative;
+}
+
+.about__content-cook img {
+    position: absolute;
+    left: -155px;
+    top: -2px;
+}
+
+.about__content-text, .ingredients__content-text {
+    max-height: 120px;
+    overflow: hidden;
+}
+
+.about__content-dish {
+    width: 530px;
+    height: 510px;
+    position: relative;
+}
+
+.about__content-dish img {
+    position: absolute;
+    top: -45px;
+    left: -46px;
+}
+
+/*ingredients*/
+
+.ingredients {
+    height: 758px;
+    padding: 100px 0 101px;
+    box-sizing: border-box;
+    background-color: #191919;
+    background-image: url(../img/bg/bg-03-ingredients.jpg);
+}
+
+.ingredients__wrapper {
+    width: 1170px;
+    height: 557px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.ingredients__content {
+    width: 570px;
+    height: 557px;
+    background-color: rgba(0, 0, 0, .67);
+    padding: 86px 65px 75px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.ingredients__content p {
+    color: #fff;
+    margin-top: -2px;
+}
+
+.ingredients__content .divider, .reviews .divider {
+    margin: 23px auto;
+}
+
+.ingredients__content ul {
+    margin: 25px 25px 0 0;
+    position: relative;
+    z-index: 3;
+}
+
+.ingredients__content li {
+    color: #fff;
+    font-family: Lato, sans-serif;
+    line-height: 30px;
+}
+.ingredients__content span {
+    margin-right: 4px;
+}
+
+.ingredients__content span > .fa {
+    font-size: 13px;
+}
+
+.ingredients__images {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 78px;
+    justify-content: center;
+}
+
+.ingredients__image {
+    width: 100px;
+    height: 100px;
+    border: 5px solid rgba(255, 255, 255, .09);
+    border-radius: 50%;
+    position: relative;
+    margin: 0 15px;
+}
+
+.ingredients__image img {
+    border-radius: 50%;
+    position: absolute;
+    max-width: 100%;
+    min-height: 100%;
+    object-fit: none;
+    object-position: -37px -89px; 
+}
+
+.ingredients__images .ingredients__image:first-child > img {
+    object-position: -100px -31px;    
+}
+
+.ingredients__images .ingredients__image:last-child > img {
+    object-position: -38px -16px;    
+}
+
+/*menu*/
+
+.menu {
+    padding: 100px 0 26px;
+    background-image: url(../img/pattern2.jpg);
+    background-repeat: repeat;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.35) inset;
+}
+
+.menu__container {
+    width: 1030px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.menu__col {
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 9px;
+}
+
+.menu .divider {
+    margin: 23px auto;
+}
+
+.menu__content {
+    width: 100%;
+    margin-bottom: 39px
+}
+
+.menu__item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 31px;
+    position: relative;
+}
+
+.menu__item h5 {
+    margin-top: 2px;
+}
+.menu__item h5:first-child {
+    margin-left: -2px;
+}
+
+
+.menu__item-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.menu__item p {
+    width: 100%;
+    text-align: left;
+    margin-left: -2px;
+    
+}
+
+.menu__item span {
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, #eeede4, #c90, #eeede4);
+    margin: 8px 0;
+}
+
+.special::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    left: -10px;
+    right: -10px;
+    border: 1px solid rgba(204, 153, 0, .5);
+}
+
+.special::after {
+    content: "Special";
+    position: absolute;
+    top: -26px;
+    right: -10px;
+    border-right: 1px solid rgba(204, 153, 0, .5);
+    background-color: rgba(204, 153, 0, .5);
+    width: 67px;
+    height: 20px;
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*reviews*/
+
+.reviews {
+    height: 758px;
+    background-color: #191919;
+    background-image: url(../img/bg/bg-05-reviews.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviews__container {
+    width: 770px;
+    height: 557px;
+    background-color: rgba(0,0,0,.7);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reviews h4 {
+    padding-top: 80px;
+    margin-top: 5px;
+}
+
+.reviews .divider {
+    margin-bottom: 18px;
+}
+
+.reviews q {
+    font-family: GentiumBook, serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: 25px;
+    line-height: 45px;
+    display: block;
+    width: 630px;
+    margin: 0 auto 30px;
+    position: relative;
+    text-align: center;
+}
+
+q::before {
+    content: "";
+    background-image: url(../img/quote.png);
+    position: absolute;
+    width: 32px;
+    height: 25px;
+    top: -7px;
+    left: -39px;
+}
+
+.reviews p {
+    color: #fff;
+}
+
+/*reservations*/
+
+.reservations {
+    height: 710px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/pattern1.jpg);
+    background-repeat: repeat;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.35) inset;
+}
+
+.reservations__container {
+    width: 1100px;
+    margin-right: 70px;
+    height: 508px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reservations__images {
+    display: flex;
+    width: 570px;
+    justify-content: space-between;
+}
+
+.reservations__image {
+    height: 100%;
+    width: 270px;
+}
+
+.reservations h3 {
+    margin-top: 4px;
+}
+
+.reservations .divider {
+    margin: 10px auto;
+}
+
+.reservations__form {
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reservations__form-text {
+    max-height: 72px;
+    overflow: hidden;
+}
+
+.reservations__form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+
+.reservations__form label {
+    font-family: OpenSans, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #c90;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.reservations__form input {
+    width: 200px;
+    height: 36px;
+    box-sizing: border-box;
+    outline: none;
+    font-family: OpenSans, sans-serif;
+    font-style: italic;
+    padding-left: 15px; 
+    margin-top: 7px;
+}
+
+.reservations__form input:placeholder-shown {
+    font-family: OpenSans, sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.reservations__form input:focus {
+    border: 1px solid #c90;
+}
+
+.reservations__form input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.reservations__form input::-webkit-outer-spin-button, 
+.reservations__form input::-webkit-inner-spin-button { 
+    -webkit-appearance: none; 
+}
+.input-date {
+    position: relative;
+    display: block;
+}
+
+.reservations__form button {
+    margin: 0 auto;
+    width: 200px;
+    height: 36px;
+    border: none;
+    outline: none;
+    margin-top: 33px;
+    background-color: #c90;
+    color: #fff;
+    font-family: OpenSans, sans-serif;
+    font-size: 16px;
+    position: relative;
+}
+
+/*
+ВНИМАНИЕ: КОСТЫЛЬ! дико извиняюсь, но я исчерпал все 
+варианты, которые знал.
+*/
+.reservations__form button::after {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f073";
+    display: inline-block;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    top: -62px;
+    right: 126px;
+    color: #999;
+}
+
+::-webkit-calendar-picker-indicator {
+    color: transparent;
+}
+
+/*END MAIN*/
+
+/*FOOTER*/
+
+footer {
+    background-color: #191919;
+    width: 100%;
+    height: 268px;
+    padding-top: 52px;
+}
+
+.footer__container {
+    width: 1170px;
+    margin: 0px auto 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__content {
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__content-text {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+}
+
+footer h6 {
+    margin-top: 8px;
+}
+
+footer .divider {
+    margin: 17px auto 15px;
+}
+
+.footer__content-text p {
+    font-family: OpenSans, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    line-height: 24px;
+}
+
+.footer__content-text p > b, .footer__content-text p > strong {
+    font-weight: 700;
+}
+
+.footer__icons {
+    margin-bottom: 4px;
+}
+
+.footer__icons .fa {
+    color: #fff;
+    transition: color .4s ease;
+    margin: 0 0 0 8px;
+}
+
+.footer__icons .fa:hover {
+    color: #c90;
+    transition: color .4s ease;
+}
